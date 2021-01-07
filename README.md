@@ -1,4 +1,4 @@
-# Python-powered chat apps with Twilio and SendGrid course
+# Python-powered chat apps with Twilio and SendGrid
 
 Python-powered chat apps with Twilio and SendGrid course code, materials, and handouts.
 
