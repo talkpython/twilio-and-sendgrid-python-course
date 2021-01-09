@@ -5,4 +5,4 @@ blueprint = flask.Blueprint('home', 'home')
 
 @blueprint.route('/')
 def index():
-    return "Hello world!"
+    return flask.render_template('home/index.html')
