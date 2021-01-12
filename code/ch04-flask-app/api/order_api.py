@@ -3,6 +3,7 @@ import flask
 blueprint = flask.Blueprint('order_api', 'order_api')
 
 
-@blueprint.route('/api/order')
+@blueprint.route('/api/order', methods=['POST'])
 def order():
-    return {"ordered": True}
+    data = flask.request.get_json(force=True)
+    return {"received": data}
