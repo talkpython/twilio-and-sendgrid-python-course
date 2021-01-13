@@ -8,3 +8,6 @@ class CakeOrder(BaseModel):
     customer: Customer
     cake: Cake
     price: float
+
+    class Config:
+        anystr_strip_whitespace = True

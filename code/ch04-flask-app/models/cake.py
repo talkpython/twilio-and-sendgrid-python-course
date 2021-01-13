@@ -6,3 +6,6 @@ class Cake(BaseModel):
     frosting: str
     flavour: str
     size: str
+
+    class Config:
+        anystr_strip_whitespace = True
