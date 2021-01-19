@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+code/ch05-database/.idea/misc.xml
+code/ch05-database/.idea/modules.xml
+ch05-database.iml
