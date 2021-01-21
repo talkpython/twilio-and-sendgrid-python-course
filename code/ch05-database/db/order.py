@@ -5,6 +5,8 @@ from db.base_class import SqlAlchemyBase
 
 
 class Order(SqlAlchemyBase):
+    __tablename__ = "orders"
+
     id: int = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     created_date: datetime.datetime = sa.Column(
         sa.DateTime,

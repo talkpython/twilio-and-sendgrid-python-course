@@ -7,6 +7,8 @@ from db.order import Order
 
 
 class User(SqlAlchemyBase):
+    __tablename__ = "users"
+
     id: int = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     created_date: datetime.datetime = sa.Column(
         sa.DateTime,

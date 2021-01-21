@@ -1,11 +1,30 @@
 import flask
+
+from db import session
 from views import home
 from api import order_api
+from pathlib import Path
 
 app = flask.Flask(__name__)
 
-app.register_blueprint(home.blueprint)
-app.register_blueprint(order_api.blueprint)
+
+def configure():
+    configure_routes()
+    configure_db()
+
+
+def configure_routes():
+    app.register_blueprint(home.blueprint)
+    app.register_blueprint(order_api.blueprint)
+
+
+def configure_db():
+    db_file = Path(__file__).parent / 'sql' / 'cloud_city.sqlite'
+    session.global_init(db_file.as_posix())
+
 
 if __name__ == '__main__':
+    configure()
     app.run()
+else:
+    configure()
