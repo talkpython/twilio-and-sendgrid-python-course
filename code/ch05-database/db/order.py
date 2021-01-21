@@ -1,16 +1,23 @@
 import datetime
+import sqlalchemy as sa
+
+from db.base_class import SqlAlchemyBase
 
 
-class Order:
-    id: int
-    created_date: datetime.datetime
-    fulfilled_date: datetime.datetime
+class Order(SqlAlchemyBase):
+    id: int = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
+    created_date: datetime.datetime = sa.Column(
+        sa.DateTime,
+        default=datetime.datetime.now,
+        index=True)
+    fulfilled_date: datetime.datetime = sa.Column(sa.DateTime, index=True)
 
-    size: str
-    flavour: str
-    topping: str
-    frosting: str
-    price: float
+    size: str = sa.Column(sa.String)
+    flavour: str = sa.Column(sa.String)
+    topping: str = sa.Column(sa.String)
+    frosting: str = sa.Column(sa.String)
+    price: float = sa.Column(sa.Float, index=True)
 
-    user_id: int
-    user: "User"
+    user_id: int = sa.Column(sa.Integer)
+
+    # user: "User"
