@@ -13,3 +13,4 @@ class Order:
     price: float
 
     user_id: int
+    user: "User"
