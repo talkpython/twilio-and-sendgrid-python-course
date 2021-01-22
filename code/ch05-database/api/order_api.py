@@ -21,6 +21,6 @@ def order():
 
     # TODO: Return order details to user via Studio
 
-    print(cake_order)
+    print(db_order)
 
     return {"received": cake_order.dict()}
