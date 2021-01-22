@@ -1,5 +1,6 @@
 import datetime
 import sqlalchemy as sa
+from sqlalchemy import orm
 
 from db.base_class import SqlAlchemyBase
 
@@ -20,6 +21,5 @@ class Order(SqlAlchemyBase):
     frosting: str = sa.Column(sa.String)
     price: float = sa.Column(sa.Float, index=True)
 
-    user_id: int = sa.Column(sa.Integer)
-
-    # user: "User"
+    user_id: int = sa.Column(sa.Integer, sa.ForeignKey("users.id"))
+    user: "User" = orm.relationship("User", back_populates="orders")

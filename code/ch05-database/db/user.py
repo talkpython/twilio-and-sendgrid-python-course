@@ -1,6 +1,7 @@
 import datetime
 from typing import List
 import sqlalchemy as sa
+from sqlalchemy import orm
 
 from db.base_class import SqlAlchemyBase
 from db.order import Order
@@ -19,4 +20,4 @@ class User(SqlAlchemyBase):
     phone: str = sa.Column(sa.String, index=True)
     email: str = sa.Column(sa.String, index=True)
 
-    # orders: List[Order]
+    orders: List[Order] = orm.relationship("Order", back_populates="user")
