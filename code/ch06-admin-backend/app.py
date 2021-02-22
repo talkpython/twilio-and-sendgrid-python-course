@@ -27,6 +27,6 @@ def configure_db():
 
 if __name__ == '__main__':
     configure()
-    app.run()
+    app.run(debug=True)
 else:
     configure()
