@@ -2,6 +2,7 @@ import flask
 
 from db import session
 from views import home
+from views import admin
 from api import order_api
 from pathlib import Path
 
@@ -16,6 +17,7 @@ def configure():
 def configure_routes():
     app.register_blueprint(home.blueprint)
     app.register_blueprint(order_api.blueprint)
+    app.register_blueprint(admin.blueprint)
 
 
 def configure_db():
