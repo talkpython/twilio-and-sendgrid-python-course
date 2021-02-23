@@ -1,0 +1,47 @@
+body {
+    background-color: #444;
+    color: white;
+}
+
+.intro-header {
+    background: white url(/static/img/slice-hero.jpg) no-repeat bottom center;
+    background-size: cover;
+    height: 400px;
+    padding-top: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.intro-header h1 {
+    margin-top: 125px;
+    background-color: rgba(231, 217, 252, .6);
+    border-radius: 5px;
+    border: 1px solid #dac6fd;
+}
+
+.customer.content {
+    background-color: #E7D9FC;
+}
+.content {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 20px 50px;
+}
+
+.inner-content {
+    max-width: 800px;
+    text-align: left;
+    margin: 50px auto;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 50px;
+    text-align: center;
+    color: #888;
+    background-color: #444;
+}

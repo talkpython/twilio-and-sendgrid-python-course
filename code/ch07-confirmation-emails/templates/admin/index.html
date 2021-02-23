@@ -1,0 +1,44 @@
+{% extends "_shared/layout.html" %}
+
+{% block main_content %}
+
+    <div class="content">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Number</th>
+                <th>Email</th>
+                <th>Purchase Date</th>
+                <th>Completed Date</th>
+                <th>Order Status</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.user.name }}</td>
+                    <td>{{ order.user.phone }}</td>
+                    <td>{{ order.user.email }}</td>
+                    <td>{{ order.created_date.date().isoformat() }}</td>
+                    <td>{{ "" if not order.fulfilled_date else order.fulfilled_date.date().isoformat() }}</td>
+                    <td>{{ "OPEN" if not order.fulfilled_date else "Fulfilled" }}</td>
+                    <td>
+                        {% if not order.fulfilled_date %}
+                            <a href="/admin/fulfill/{{ order.id }}" class="btn btn-sm btn-success">Fulfill</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}
