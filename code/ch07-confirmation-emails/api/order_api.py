@@ -2,7 +2,7 @@ import flask
 
 from models.order import CakeOrder
 from models.order_response import OrderResponseModel
-from service import user_service
+from service import user_service, email_service
 
 blueprint = flask.Blueprint('order_api', 'order_api')
 
@@ -18,7 +18,7 @@ def order():
         cake_order.cake,
         cake_order.price)
 
-    # TODO: Send email receipt + invoice
+    email_service.send_cake_order_receipt(db_order)
 
     # Return order details to user via Studio
     resp = OrderResponseModel(
