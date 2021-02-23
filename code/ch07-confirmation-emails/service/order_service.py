@@ -33,3 +33,7 @@ def fulfill_order(order_id: int) -> bool:
             return True
 
         order.fulfilled_date = datetime.datetime.now()
+
+        # Forgot this in the video version. No harm since we don't use it
+        # but might as well make the function consistent, right? :)
+        return True  
