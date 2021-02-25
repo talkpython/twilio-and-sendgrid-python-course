@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice from Cloud City Cakes Co</title>
+</head>
+<body style="margin: 0px; padding: 0px; line-height: 1.75em; text-align: center;">
+<div style="background: white; color: black;  font-family: Tahoma,serif; padding: 30px; max-width: 75%; margin: auto; text-align: left;">
+
+
+    <div style="margin-bottom: 40px;">
+        <strong>Cloud City Cake Co.</strong><br>
+        123 Main St.<br>
+        Tech Town, USA
+    </div>
+
+
+    <div style="margin-bottom: 40px;">
+        <table style="border: none;">
+            <tbody>
+            <tr>
+                <td style="width: 22%">
+                    <strong>Billed To</strong><br>
+                    {{ order.user.name }}<br>
+                </td>
+                <td style="width: 22%">
+                    <strong>Date of Issue</strong><br>
+                    {{ order.created_date.month }}/{{ order.created_date.day }}/{{ order.created_date.year }}
+                </td>
+                <td style="width: 22%">
+                    <strong>Invoice Number</strong><br>
+                    {{ order.id }}
+                </td>
+                <td style="width: 22%">
+                    <strong>Amount Paid</strong><br>
+                    {{ "{:,.02f}".format(order.price) }} GC
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+        <h2>Cake details</h2>
+
+        <div>
+            {{ order.size.capitalize() }} {{ order.flavour }} cake with {{ order.frosting }} frosting
+            and {{ order.topping }} topping.
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
+
+

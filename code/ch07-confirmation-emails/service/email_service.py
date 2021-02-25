@@ -20,6 +20,10 @@ def send_cake_order_receipt(order: Order):
     html = build_html('email/receipt.html', {'order': order})
     text = html2text.html2text(html)
 
+    invoice_html = build_html('email/invoice.html', {'order': order})
+    print(invoice_html)
+    return
+
     # TODO: Build PDF invoice
     # TODO: Attach the invoice to the email
 
