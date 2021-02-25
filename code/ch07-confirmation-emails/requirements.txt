@@ -3,3 +3,4 @@ pydantic
 sqlalchemy
 sendgrid
 html2text
+pdfkit
