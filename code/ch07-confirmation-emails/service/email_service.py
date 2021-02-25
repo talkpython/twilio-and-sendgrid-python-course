@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Optional
 
+import html2text
 import jinja2
 import python_http_client
 import sendgrid
@@ -16,18 +17,11 @@ def send_cake_order_receipt(order: Order):
     to_email = sendgrid.To(order.user.email, order.user.name)
     subject = sendgrid.Subject("Your order receipt from Cloud City Cakes")
 
-    html = build_html('email/testemail.html', {'order': order})
+    html = build_html('email/receipt.html', {'order': order})
+    text = html2text.html2text(html)
 
-    text = "Your Receipt" \
-           "\n" \
-           f"Thanks for ordering your {order.size} {order.flavour} cake."
-
-    # TODO: Generate HTML content
     # TODO: Build PDF invoice
     # TODO: Attach the invoice to the email
-    print("Would send HTML:")
-    print(html)
-    return
 
     # Send the email
     message = sendgrid.Mail(from_email, to_email, subject, text, html)
