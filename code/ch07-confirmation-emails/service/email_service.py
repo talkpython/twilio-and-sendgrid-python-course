@@ -25,14 +25,16 @@ def send_cake_order_receipt(order: Order):
 
     invoice_html = build_html('email/invoice.html', {'order': order})
     pdf = build_pdf(invoice_html)
-    print(pdf)
-    return
 
-    # TODO: Build PDF invoice
-    # TODO: Attach the invoice to the email
+    attachment = sendgrid.Attachment()
+    attachment.file_content = pdf
+    attachment.disposition = "attachment"
+    attachment.file_type = "application/pdf"
+    attachment.file_name = f"cloud-city-invoice-{order.id}.pdf"
 
     # Send the email
     message = sendgrid.Mail(from_email, to_email, subject, text, html)
+    message.add_attachment(attachment)
     response: python_http_client.client.Response = client.send(message)
 
     if response.status_code not in {200, 201, 202}:
