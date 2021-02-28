@@ -1,0 +1,49 @@
+{% extends "email/_shared_email.html" %}
+{% block content %}
+    <h1 style="text-align: center;">Cake order is being processed</h1>
+
+    <div>
+        Hi {{ order.user.name }}. Thank you for ordering one of our award winning cakes. This email
+        is your confirmation and receipt for your purchase. <strong>You'll receive a WhatsApp message
+        when your cake is ready for pickup</strong>.
+    </div>
+
+    <div style="text-align: center; font-size: 1.25em;">
+        <h2 style="text-align: center;">Order details</h2>
+        <table style="margin: auto; max-width: 60%;">
+            <tbody>
+            <tr>
+                <td style="text-align: right; padding-right: 20px; font-weight: bold;">Size</td>
+                <td>{{ order.size.capitalize() }}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 20px; font-weight: bold;">Flavour</td>
+                <td>{{ order.flavour.capitalize() }}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 20px; font-weight: bold;">Topping</td>
+                <td>{{ order.topping.capitalize() }}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 20px; font-weight: bold;">Frosting</td>
+                <td>{{ order.frosting.capitalize() }}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; padding-right: 20px; font-weight: bold;">Price</td>
+                <td>{{ "{:.0f}".format(order.price) }}🌟</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>
+        Just reply to this email if you have any questions.
+    </p>
+
+    <div>
+        Thank you!<br>
+        Cloud City Cake Co team
+    </div>
+
+
+{% endblock %}
