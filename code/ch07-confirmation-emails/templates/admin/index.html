@@ -23,7 +23,7 @@
                 <tr>
                     <td>{{ order.id }}</td>
                     <td>{{ order.user.name }}</td>
-                    <td>whatsapp:+15031234567</td>
+                    <td>{{ order.user.number }}</td>
                     <td>{{ order.user.email }}</td>
                     <td>{{ order.created_date.date().isoformat() }}</td>
                     <td>{{ "" if not order.fulfilled_date else order.fulfilled_date.date().isoformat() }}</td>
