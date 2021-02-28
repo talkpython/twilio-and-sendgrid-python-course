@@ -4,3 +4,4 @@ sqlalchemy
 sendgrid
 html2text
 pdfkit
+twilio

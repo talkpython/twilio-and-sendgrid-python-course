@@ -31,6 +31,10 @@ def configure_secrets():
         app_secrets.sendgrid_api_key = sendgrid_['secret_key']
         app_secrets.sendgrid_key_name = sendgrid_['key_name']
 
+        twilio_keys = secrets['twilio']
+        app_secrets.twilio_sid = twilio_keys['sid']
+        app_secrets.twilio_key = twilio_keys['auth_token']
+
 
 def configure_routes():
     app.register_blueprint(home.blueprint)
