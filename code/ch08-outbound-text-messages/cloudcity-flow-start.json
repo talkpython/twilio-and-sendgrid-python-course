@@ -124,7 +124,7 @@
         },
         "method": "GET",
         "content_type": "application/x-www-form-urlencoded;charset=utf-8",
-        "url": "https://cloudcitycakecompany.azurewebsites.net/api/flavours"
+        "url": "https://cloudcityapi.talkpython.fm/api/flavours"
       }
     },
     {
@@ -440,7 +440,7 @@
             "key": "topping"
           }
         ],
-        "url": "https://cloudcitycakecompany.azurewebsites.net/api/pricecalculator"
+        "url": "https://cloudcityapi.talkpython.fm/api/pricecalculator"
       }
     },
     {
